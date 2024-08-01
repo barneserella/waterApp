@@ -5,42 +5,39 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const services = [
-    'Haircut',
-    'Hair Coloring',
-    'Deep Conditioning',
-    "Bridal Styling",
-    'Event Styling'
+    'Residential Water Delivery',
+    'Commercial Water Delivery',
+    'Emergency Water Services',
+    'Event Water Supply',
+    'Pool Filling Services',
+    'Bulk Water Purchase',
+    'Custom Solutions',
 ];
 
-const stylists = [
-    'Luna Sparkle',
-    'Oliver Twist',
-    'Aurora Glow',
-    'Evelyn Breeze'
-]
 
 const Booking = () => {
 
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
     const [service,setService] = useState('');
-    const [stylist, setStylist] = useState('');
+    const [message,setMessage] = useState('');
+
     const [date,setDate] = useState(new Date());
 
     const navigate = useNavigate();
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:5000/api/bookings', {
+        const response = await fetch('http://localhost:3000/api/bookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({name,email,phoneNumber,date,service,stylist})
+            body: JSON.stringify({name,phoneNumber,address,date,service,message})
         })
         if(response.ok) {
-            alert(`Booking for ${name} on ${date.toLocaleDateString()} was successful. We will send an email to ${email} with available times.`);
+            alert(`Booking for ${name} on ${date.toLocaleDateString()} was successful.`);
             navigate('/');
         }else {
             alert('Booking failed. Please try again.')
@@ -49,7 +46,7 @@ const Booking = () => {
 
   return (
     <div>
-        <h2>Book an Appointment</h2>
+        <h2>Book your Water Delivery</h2>
         <form onSubmit={handleSubmit}>
             <label htmlFor="">Name:</label>
             <input 
@@ -66,21 +63,23 @@ const Booking = () => {
                 value={phoneNumber}
                 onChange={(e)=> setPhoneNumber(e.target.value)} 
                 required/>
-            <label htmlFor="">Email:</label>
+            <label htmlFor="">Address:</label>
             <input 
-                type="email"
-                id='email'
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
+                type="address"
+                id='address'
+                value={address}
+                onChange={(e)=> setAddress(e.target.value)}
+                required
                 />
             <label htmlFor="date">Date:</label>
 
             <Calendar 
                 onChange={setDate}
                 value={date}
+                required
                 />
 
-            <div>Selected Date:</div>
+            <div>Selected Date: {date.toLocaleDateString()}</div>
 
             <label htmlFor="service">Service:</label>
             <select 
@@ -94,18 +93,14 @@ const Booking = () => {
                         <option key={index} value={service}>{service}</option>
                     ))}
             </select>
-            <label htmlFor="stylist">Stylist:</label>
-            <select 
-                id="stylist"
-                value={stylist}
-                onChange={(e)=> setStylist(e.target.value)}
-                required
-                >
-                    <option value='' disabled>Select a stylist</option>
-                    {stylists.map((stylist, index)=> (
-                        <option key={index} value={stylist}>{stylist}</option>
-                    ))}
-            </select>
+            <label htmlFor="message">Message:</label>
+            <textarea 
+                name="message" 
+                id="message" 
+                value={message} 
+                onChange={(e)=> setMessage(e.target.value)} 
+                rows="4" cols="50">Add additional  notes here.</textarea>
+
             <button type='submit'>Book</button>
         </form>
     </div>

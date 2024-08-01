@@ -11,9 +11,9 @@ function App() {
     <>
       <div>
         <header>
-          <h1>Tangle & Twirl</h1>
+          <h1>Bulk Water Delivery</h1>
           <nav>
-            <a href='/'>Home</a> | <a href="/staff">Staff</a> | <a href="/services">Services</a> | <a href="/bookings">Booking</a> | <a href="/admin">Admin</a>
+            <a href='/'>Home</a> | <a href="/services">Services</a> | <a href="/bookings">Booking</a> | <a href="/admin">Admin</a>
           </nav>
         </header>
         <main>

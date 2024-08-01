@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const app = express()
-const PORT = 5000;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json())
@@ -18,11 +18,11 @@ mongoose.connect(process.env.CONNECTION_STRING)
 
 const BookingSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    address: { type: String, required: true },
     phoneNumber: { type: String, required: true },
     date: {type: Date, required: true },
     service: { type: String, required: true },
-    stylist: { type: String, required: false },
+    message: { type: String, required: false },
 })
 
 const Booking = mongoose.model('Booking', BookingSchema)
@@ -39,9 +39,9 @@ app.get('/api/bookings', async (req, res) => {
 
 app.post('/api/bookings', async (req, res) => {
     try{
-        const { name, email, phoneNumber, date,  service, stylist } = req.body
+        const { name, address, phoneNumber, date,  service, message } = req.body
         console.log(req.body)
-        const newBooking = new Booking({name, email, phoneNumber, date, service, stylist })
+        const newBooking = new Booking({name, address, phoneNumber, date, service, message })
         await newBooking.save()
         res.json(newBooking)
     }catch(error) {

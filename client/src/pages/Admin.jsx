@@ -6,7 +6,7 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchBookings = async() => {
-      const response = await fetch('http://localhost:5000/api/bookings');
+      const response = await fetch('http://localhost:3000/api/bookings');
       const data = await response.json();
       setBookings(data);
     }
@@ -20,7 +20,7 @@ const Admin = () => {
       <ul>
         {bookings.map((booking) => (
           <li key={booking._id}>
-            {booking.name} - {booking.email} - {new Date(booking.date).toLocaleDateString()} - {booking.service} - {booking.stylist}
+            {booking.name} - {booking.address} - {booking.phoneNumber} - {new Date(booking.date).toLocaleDateString()} - {booking.service} - {booking.message}
           </li>
         ))}
       </ul>

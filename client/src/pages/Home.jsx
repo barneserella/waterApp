@@ -3,9 +3,20 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-        <h1>Welcome to Tangle & Twirl Hair Salon!</h1>
-        <p>Step into a world where creativity meets elegance. At Whimsy & Waves, we believe your hair is your canvas, and we're here to create a masterpiece. Our skilled stylists are passionate about making you look and feel fabulous, whether you're here for a trim, a transformation, or a touch of color.</p>
-        <p>Join us for an unparalleled experience where every visit is a delight. Indulge in a soothing ambiance, exceptional service, and a little touch of magic. Ready to reveal the best version of you? Book your appointment today!</p>
+        <h1>Welcome to AquaHaul Solutions</h1>
+        <h2>Your Trusted Partner for Bulk Water Delivery Services</h2>
+        <h2>Reliable. Efficient. Timely.</h2>
+
+        <h2>Why Choose AquaHaul?</h2>
+
+        <h3>Expertise in Bulk Water Delivery</h3>
+        <p>At AquaHaul Solutions, we specialize in delivering bulk water with precision and reliability. Whether you're a homeowner needing pool filling or a contractor requiring water for construction, we have you covered.</p>
+
+        <h3>Diverse Service Offerings</h3>
+        <p>From residential water delivery to emergency services and event water supply, AquaHaul provides a wide range of tailored solutions to meet your specific needs.</p>
+
+        <h3>Commitment to Quality</h3>
+        <p>We prioritize quality and safety in every delivery. Our water meets stringent standards, ensuring it's clean and suitable for your intended use.</p>
     </div>
   )
 }

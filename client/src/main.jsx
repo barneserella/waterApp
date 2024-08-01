@@ -5,7 +5,7 @@ import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import Booking from './pages/Booking.jsx';
 import Admin from './pages/Admin.jsx';
-import Staff from './pages/Staff.jsx';
+
 import Services from './pages/Services.jsx';
 
 import './index.css';
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='services' element={<Services />} />
         <Route path='bookings' element={<Booking />} />
         <Route path='admin' element={<Admin />} />
-        <Route path='staff' element={<Staff />} />
+        
       </Route>
     </Routes>
   </Router>
