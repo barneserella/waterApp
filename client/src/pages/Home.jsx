@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-        <h1 className="text-3xl font-bold underline">Welcome to AquaHaul Solutions</h1>
+        <h1 className="text-10xl font-bold underline">Welcome to AquaHaul Solutions</h1>
         <h2>Your Trusted Partner for Bulk Water Delivery Services</h2>
         <h2>Reliable. Efficient. Timely.</h2>
 
