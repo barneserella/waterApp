@@ -5,7 +5,6 @@ import App from './App.jsx';
 import Home from './pages/Home.jsx';
 import Booking from './pages/Booking.jsx';
 import Admin from './pages/Admin.jsx';
-
 import Services from './pages/Services.jsx';
 
 import './index.css';

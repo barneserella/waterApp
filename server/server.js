@@ -1,9 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const flash = require('express-flash-message');
+const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 const app = express()
 const PORT = 3000;
+const Booking = require('./models/bookings.js');
 
 app.use(cors());
 app.use(express.json())
@@ -16,16 +22,16 @@ mongoose.connect(process.env.CONNECTION_STRING)
             console.error("Error", error)
         });
 
-const BookingSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    address: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
-    date: {type: Date, required: true },
-    service: { type: String, required: true },
-    message: { type: String, required: false },
-})
+// const BookingSchema = new mongoose.Schema({
+//     name: { type: String, required: true },
+//     address: { type: String, required: true },
+//     phoneNumber: { type: String, required: true },
+//     date: {type: Date, required: true },
+//     service: { type: String, required: true },
+//     message: { type: String, required: false },
+// })
 
-const Booking = mongoose.model('Booking', BookingSchema)
+// const Booking = mongoose.model('Booking', BookingSchema)
 
 app.get('/api/bookings', async (req, res) => {
     try{
@@ -35,7 +41,7 @@ app.get('/api/bookings', async (req, res) => {
         console.error("Error fetching bookings:", error);
         res.status(500).json({ message: 'Error fetching bookings' })
     }
-});
+}); 
 
 app.post('/api/bookings', async (req, res) => {
     try{
