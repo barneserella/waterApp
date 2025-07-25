@@ -10,10 +10,14 @@ function App() {
     <>
       <div>
         <header>
-          <h1 className='text-3xl font-bold underline bg-red-200'>Bulk Water Delivery</h1>
-          <nav>
-            <a href='/'>Home</a> | <a href="/services">Services</a> | <a href="/bookings">Booking</a> | <a href="/admin">Admin</a>
-          </nav>
+          <div className="header-content">
+            <h1 className="logo">AquaHaul Solutions</h1>
+            <nav>
+              <ul>
+                <li><a href='/'>Home</a></li> | <li><a href="/services">Services</a></li> | <li><a href="/bookings">Booking</a></li> | <li><a href="/admin">Admin</a></li>
+              </ul>
+            </nav>
+          </div>
         </header>
         <main>
           <Outlet />

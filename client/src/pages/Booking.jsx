@@ -1,4 +1,5 @@
 import Calendar from 'react-calendar';
+import "react-calendar/dist/Calendar.css"; 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,20 +45,33 @@ const Booking = () => {
 
   return (
     <div>
-        <h2>Book your Water Delivery</h2>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="">Name:</label>
-            <input 
-                type="text" 
-                id='name' 
-                value={name} 
-                onChange={(e)=> setName(e.target.value)} 
-                required 
+        <div className='section-header'>
+            <h2>Book your Water Delivery</h2>
+        </div>
+        <div className="booking-container">
+        
+            <Calendar 
+                onChange={setDate}
+                value={date}
+                className="custom-calendar"
+                required
+            />
+
+            <div>Selected Date: {date.toLocaleDateString()}</div>
+            
+            <form onSubmit={handleSubmit} className='booking-form'>
+                <label htmlFor="">Name:</label>
+                <input 
+                    type="text" 
+                    id='name' 
+                    value={name} 
+                    onChange={(e)=> setName(e.target.value)} 
+                    required 
                 />
-            <label htmlFor="">Phone Number:</label>
-            <input 
-                type="number"
-                id='phoneNumber' 
+                <label htmlFor="">Phone Number:</label>
+                <input 
+                    type="number"
+                    id='phoneNumber' 
                 value={phoneNumber}
                 onChange={(e)=> setPhoneNumber(e.target.value)} 
                 required/>
@@ -69,38 +83,31 @@ const Booking = () => {
                 onChange={(e)=> setAddress(e.target.value)}
                 required
                 />
-            <label htmlFor="date">Date:</label>
-
-            <Calendar 
-                onChange={setDate}
-                value={date}
-                required
-                />
-
-            <div>Selected Date: {date.toLocaleDateString()}</div>
 
             <label htmlFor="service">Service:</label>
-            <select 
-                id="service"
-                value={service}
-                onChange={(e)=> setService(e.target.value)}
-                required
+                <select 
+                    id="service"
+                    value={service}
+                    onChange={(e)=> setService(e.target.value)}
+                    required
                 >
-                    <option value='' disabled>Select a service</option>
-                    {services.map((service, index)=> (
-                        <option key={index} value={service}>{service}</option>
-                    ))}
-            </select>
+                <option value='' disabled>Select a service</option>
+                {services.map((service, index)=> (
+                    <option key={index} value={service}>{service}</option>
+                ))}
+                </select>
             <label htmlFor="message">Message:</label>
-            <textarea 
-                name="message" 
-                id="message" 
-                value={message} 
-                onChange={(e)=> setMessage(e.target.value)} 
-                rows="4" cols="50">Add additional  notes here.</textarea>
+                <textarea 
+                    name="message" 
+                    id="message" 
+                    value={message} 
+                    onChange={(e)=> setMessage(e.target.value)} 
+                    rows="4" cols="50">Add additional  notes here.
+                </textarea>
 
-            <button type='submit'>Book</button>
+            <button type='submit'>Book Now</button>
         </form>
+        </div>
     </div>
   )
 }
