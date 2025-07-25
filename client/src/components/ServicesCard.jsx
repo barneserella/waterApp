@@ -26,7 +26,7 @@ const ServicesCard = ({ icon, title, description, listItem1, listItem2, listItem
         <li>{listItem3}</li>
       </ul>
       <div className='services-button'>
-        <button type='submit' className='services-submit'>Book Now</button>
+        <button type='submit'>Book Now</button>
       </div>
     </div>
   );

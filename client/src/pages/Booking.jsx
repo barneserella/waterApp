@@ -60,7 +60,7 @@ const Booking = () => {
             <div>Selected Date: {date.toLocaleDateString()}</div>
             
             <form onSubmit={handleSubmit} className='booking-form'>
-                <label htmlFor="">Name:</label>
+                <label htmlFor="name">Name:</label>
                 <input 
                     type="text" 
                     id='name' 
@@ -68,14 +68,14 @@ const Booking = () => {
                     onChange={(e)=> setName(e.target.value)} 
                     required 
                 />
-                <label htmlFor="">Phone Number:</label>
+                <label htmlFor="phoneNumber">Phone Number:</label>
                 <input 
                     type="number"
                     id='phoneNumber' 
                 value={phoneNumber}
                 onChange={(e)=> setPhoneNumber(e.target.value)} 
                 required/>
-            <label htmlFor="">Address:</label>
+            <label htmlFor="address">Address:</label>
             <input 
                 type="address"
                 id='address'

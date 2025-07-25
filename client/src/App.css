@@ -327,9 +327,11 @@ main {
 /* Calendar styling */
 .custom-calendar {
   margin: 20px auto;
-  border: none;
   border-radius: 10px;
   overflow: hidden;
+  background: white;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
 .custom-calendar .react-calendar__tile {
@@ -340,13 +342,18 @@ main {
 }
 
 .custom-calendar .react-calendar__tile--active {
-  background-color: #4caf50;
+  background-color: #60a5fa;
   color: white;
 }
 
 .custom-calendar .react-calendar__tile:hover {
   background-color: #e0f7fa;
-  color: #00796b;
+  color: #3b82f6;
+}
+
+.react-calendar__navigation {
+  color: black;
+  background: #3b82f6;
 }
 
 /* Form styling */
@@ -355,6 +362,12 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.booking-form input:focus {
+  border-color: #60a5fa;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .booking-form label {
@@ -370,38 +383,128 @@ main {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+  color: black; 
+  background: white;
 }
 
 .booking-form button {
   padding: 10px 20px;
-  background-color: #5f9afb;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  font-weight: bold;
+  letter-spacing: 0.5px;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .booking-form button:hover {
-  background-color: #3b82f6;
+  background: white;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
 }
+
+.booking-form textarea {
+  color: black;
+}
+
+/* Services Page */
 
 .services-button {
   display: flex;
   justify-content: end;
   align-items: center;
-  
 }
 
-.services-submit {
-  background-color: #5f9afb;
+.services-button button {
   width: 200px;
-  height: 40px;
-  border-radius: 15px;
-  margin: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.services-submit:hover {
-  background-color: #3b82f6;
+.services-button button:hover {
+  background: white;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+/* Admin Table */
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-table th {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  font-weight: 600;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f1f9ff;
+}
+
+@media (max-width: 768px) {
+  .admin-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .admin-table thead {
+    display: none; /* Hide table headers on small screens */
+  }
+
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-table tr {
+    margin-bottom: 1.5rem;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .admin-table td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: none;
+    position: relative;
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #1e40af;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
 }
