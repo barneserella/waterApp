@@ -63,7 +63,37 @@ nav a {
   overflow: hidden;
 }
 
+nav button {
+  background: none; /* Removes background */
+  border: none; /* Removes border */
+  color: inherit; /* Inherits text color */
+  font: inherit; /* Inherits font style */
+  cursor: pointer; /* Adds pointer cursor for interactivity */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  /* transform: translateY(-2px); */
+}
+
 nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgbs(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+nav button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -82,6 +112,11 @@ nav a:hover {
 nav a:hover::before {
   left: 100%;
 }
+nav button:hover::before {
+  left: 100%;
+}
+
+
 
 /* Hero Section */
 
